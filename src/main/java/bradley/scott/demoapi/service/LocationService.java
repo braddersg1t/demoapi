@@ -15,7 +15,7 @@ public interface LocationService {
 	
 	/**
 	 * Returns ResponseEntity<List<User>> from an
-	 * API end-point
+	 * API endpoint
 	 * 
 	 * @return ResponseEntity<List<Object>>
 	 */
@@ -23,7 +23,7 @@ public interface LocationService {
 	
 	/**
 	 * Returns ResponseEntity<List<User>> from an
-	 * API end-point filtered by city parameter
+	 * API endpoint filtered by city parameter
 	 * 
 	 * @param city
 	 * @return ResponseEntity<List<Object>>

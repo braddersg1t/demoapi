@@ -39,12 +39,12 @@ public class LocationDataTests {
 	@BeforeEach
 	void setUp() {
 		try {
-			//data retrieved from live end-point
+			//data retrieved from live endpoint
 			londonUsersList = objectMapper.readValue(
 					new File("src/test/resources/london-users-test-data.json"), 
 					new TypeReference<List<User>>(){});
 			
-			//data retrieved from live end-point
+			//data retrieved from live endpoint
 			allUserList = objectMapper.readValue(
 					new File("src/test/resources/all-users-test-data.json"), 
 					new TypeReference<List<User>>(){});

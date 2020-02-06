@@ -18,7 +18,7 @@ import bradley.scott.demoapi.model.LocationEnum;
 import bradley.scott.demoapi.service.impl.LocationServiceImpl;
 
 /**
- * Controller containing location based end-points
+ * Controller containing location based endpoints
  * 
  * @author scottbradley
  */

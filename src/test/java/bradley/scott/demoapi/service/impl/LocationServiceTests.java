@@ -60,7 +60,7 @@ public class LocationServiceTests {
 
 	/**
 	 *  Method Tested: getAllUsers
-	 *  Test to return users when target end-point
+	 *  Test to return users when target endpoint
 	 *  is assumed to be ok. Just rodding the code
 	 *  through really!
 	 */

@@ -46,7 +46,7 @@ public class LocationServiceImpl implements LocationService {
 	
 	/**
 	 * Get all users from using 3rd
-	 * party API end-point
+	 * party API endpoint
 	 * 
 	 * @return ResponseEntity<List<Object>>
 	 */
@@ -68,8 +68,8 @@ public class LocationServiceImpl implements LocationService {
 	
 	/**
 	 * Get users by city parameter using 3rd party
-	 * API end-point.
-	 * End-point called does not appear
+	 * API endpoint.
+	 * Endpoint called does not appear
 	 * to take coordinates into consideration.
 	 * 
 	 * @param city as String
