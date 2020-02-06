@@ -16,6 +16,8 @@ import org.springframework.web.server.ResponseStatusException;
 import bradley.scott.demoapi.dto.User;
 import bradley.scott.demoapi.model.LocationEnum;
 import bradley.scott.demoapi.service.impl.LocationServiceImpl;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * Controller containing location based endpoints
@@ -23,6 +25,7 @@ import bradley.scott.demoapi.service.impl.LocationServiceImpl;
  * @author scottbradley
  */
 @RestController
+@Api(value="Location Data Management")
 public class LocationController {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(LocationController.class);
@@ -48,7 +51,8 @@ public class LocationController {
 	 * @param city as String (City is case sensitive)
 	 * @return List<User>
 	 */
-	@GetMapping("/city/{city}/users/listed")
+	@ApiOperation(value = "View a list of users by city")
+	@GetMapping(value = "/city/{city}/users/listed", produces = "application/json")
 	public List<User> getListedUsersForCity(@PathVariable String city) {
 		
 		List<User> result;
@@ -86,7 +90,8 @@ public class LocationController {
 	 * @param miles as Double
 	 * @return List<User>
 	 */
-	@GetMapping("/city/{city}/users/distance/{miles}")
+	@ApiOperation(value = "View a list of users within specified distance (miles) from a city")
+	@GetMapping(value = "/city/{city}/users/distance/{miles}", produces = "application/json")
 	public List<User> getCityUsersByCoordinatesWithinLimit(@PathVariable String city, @PathVariable Double miles) {
 		
 		List<User> result;
