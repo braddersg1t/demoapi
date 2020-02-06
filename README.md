@@ -13,6 +13,11 @@
 * Example: java -jar -Dlogs_dir=/opt/demoapi build/libs/demoapi-1.0.jar
 
 ### Testing End-Points
+Using Swagger UI.
+* Load the following URL in your browser: http://localhost:8080/swagger-ui.html
+* To load listed London users: See end-point /city/{city}/users/listed where {city} = London
+* To load users within 50 miles of London: See end-point /city/{city}/users/distance/{miles} where {city} = London and {miles} = 50
+
 Using a API test suite such as Postman, the following end-points can be tested.
 * To load listed London users: http://localhost:8080/city/London/users/listed
 * To load users within 50 miles of London: http://localhost:8080/city/London/users/distance/50
