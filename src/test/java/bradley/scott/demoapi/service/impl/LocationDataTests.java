@@ -88,12 +88,12 @@ public class LocationDataTests {
 	/**
 	 * Method Tested: filterUsersWithinDistanceOfLocation
 	 * This test should filter 1000 users down to
-	 * 6 that are within 50 miles of London
+	 * 3 that are within 50 miles of London
 	 */
 	@Test
 	void allUsersWithin50MilesOfLondon_expectResults() {
 		List<User> result = locationService.filterUsersWithinDistanceOfLocation(allUserList, 50, LocationEnum.LONDON);
-		assertTrue(result.size() == 6);
+		assertTrue(result.size() == 3);
 	}//allUsersWithin50MilesOfLondon_expectResults
 	
 }
