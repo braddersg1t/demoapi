@@ -23,7 +23,11 @@ import bradley.scott.demoapi.dto.User;
 import bradley.scott.demoapi.model.LocationEnum;
 import bradley.scott.demoapi.service.impl.LocationServiceImpl;
 
-
+/**
+ * Location Controller Tests
+ * 
+ * @author scottbradley
+ */
 @SpringBootTest
 public class LocationControllerTests {
 	
@@ -57,8 +61,12 @@ public class LocationControllerTests {
 		}
 	}
 	
+	/**
+	 * Method Tested: getListedUsersForCity
+	 * Test to return users listed by city
+	 */
 	@Test
-	void givenCityValid_returnLondonUsers() throws Exception {
+	void givenCityValid_returnLondonUsers() {
 		ResponseEntity<List<User>> userResponse = new ResponseEntity<List<User>>(testLondonUsers, HttpStatus.OK);
 		
 		Mockito.when(mockLocationService.getUsersByCity(
@@ -72,10 +80,9 @@ public class LocationControllerTests {
 	}//givenCityValid_returnLondonUsers
 	
 	/**
+	 * Method Tested: getListedUsersForCity
 	 * Test to exercise the HttpClientErrorException handling in the
 	 * getListedUsersForCity method
-	 * 
-	 * @throws Exception
 	 */
 	@Test
 	void givenGetListedUsersForCityCalled_throwHttpClientErrorException_andReturnResponseStatusException() {
@@ -91,13 +98,12 @@ public class LocationControllerTests {
 	}//givenGetListedUsersForCityCalled_throwHttpClientErrorException_andReturnResponseStatusException
 	
 	/**
+	 * Method Tested: getListedUsersForCity
 	 * Test to exercise the exception handling in the
 	 * getListedUsersForCity method
-	 * 
-	 * @throws Exception
 	 */
 	@Test
-	void givenGetListedUsersForCityCalled_throwRuntimeException_andReturnResponseStatusException() throws Exception {
+	void givenGetListedUsersForCityCalled_throwRuntimeException_andReturnResponseStatusException() {
 		
 		try {
 			Mockito.when(mockLocationService.getUsersByCity(Mockito.anyString())).thenThrow(RuntimeException.class);
@@ -109,8 +115,12 @@ public class LocationControllerTests {
 		}
 	}//givenGetListedUsersForCityCalled_throwRuntimeException_andReturnResponseStatusException
 	
+	/**
+	 * Method Tested: getCityUsersByCoordinatesWithinLimit
+	 * Test to return users within specified miles of location
+	 */
 	@Test
-	void givenCityAndMilesValid_returnUsersWithin50Miles() throws Exception {
+	void givenCityAndMilesValid_returnUsersWithin50Miles() {
 		ResponseEntity<List<User>> userResponse = new ResponseEntity<List<User>>(testUsersWithin50, HttpStatus.OK);
 		
 		Mockito.when(mockLocationService.getAllUsers()).thenReturn(userResponse);
@@ -127,10 +137,9 @@ public class LocationControllerTests {
 	}//givenCityAndMilesValid_returnAllUsers
 	
 	/**
+	 * Method Tested: getCityUsersByCoordinatesWithinLimit
 	 * Test to exercise the HttpClientErrorException handling in the
 	 * getCityUsersByCoordinatesWithinLimit method
-	 * 
-	 * @throws Exception
 	 */
 	@Test
 	void givenGetCityUsersByCoordinatesWithinLimitCalled_throwHttpClientErrorException_andReturnResponseStatusException() {
@@ -146,10 +155,9 @@ public class LocationControllerTests {
 	}//givenGetCityUsersByCoordinatesWithinLimitCalled_throwHttpClientErrorException_andReturnResponseStatusException
 	
 	/**
+	 * Method Tested: getCityUsersByCoordinatesWithinLimit
 	 * Test to exercise the exception handling in the
 	 * getCityUsersByCoordinatesWithinLimit method
-	 * 
-	 * @throws Exception
 	 */
 	@Test
 	void givenGetCityUsersByCoordinatesWithinLimitCalled_throwRuntimeException_andReturnResponseStatusException() {

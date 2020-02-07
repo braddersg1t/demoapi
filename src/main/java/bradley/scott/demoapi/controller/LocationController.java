@@ -46,12 +46,14 @@ public class LocationController {
 	 * as SonarQube labels logging and re-throwing as
 	 * a code smell. My intention was to get the actual
 	 * exception in the log and return a nicer message
-	 * with a relevant status code to the user.
+	 * with a relevant status code to the user. It may
+	 * be possible to customise error message and status
+	 * code with Swagger but i have run out of time.
 	 * 
 	 * @param city as String (City is case sensitive)
 	 * @return List<User>
 	 */
-	@ApiOperation(value = "View a list of users by city")
+	@ApiOperation(value = "View a list of users assigned to a city. Returned coordinates may not be relevant to city.")
 	@GetMapping(value = "/city/{city}/users/listed", produces = "application/json")
 	public List<User> getListedUsersForCity(@PathVariable String city) {
 		
@@ -63,8 +65,14 @@ public class LocationController {
 		}
 		catch(HttpClientErrorException e) {
 			LOGGER.error(e.getMessage());
+			
+			/*
+			 * Catch 404 and return 500 with useful message.
+			 * Not returning 404 as user successfully communicated
+			 * with my app, the 404 was part of an internal issue
+			 */
 			throw new ResponseStatusException(
-			           HttpStatus.NOT_FOUND, "There was an error when trying to call 3rd party API", e);
+			           HttpStatus.INTERNAL_SERVER_ERROR, "There was an error when trying to call 3rd party API", e);
 		}
 		catch(Exception e) {
 			LOGGER.error(e.getMessage());
@@ -84,7 +92,9 @@ public class LocationController {
 	 * as SonarQube labels logging and re-throwing as
 	 * a code smell. My intention was to get the actual
 	 * exception in the log and return a nicer message
-	 * with a relevant status code to the user.
+	 * with a relevant status code to the user. It may
+	 * be possible to customise error message and status
+	 * code with Swagger but i have run out of time.
 	 * 
 	 * @param city as String (City is case sensitive)
 	 * @param miles as Double
@@ -106,8 +116,14 @@ public class LocationController {
 		}
 		catch(HttpClientErrorException e) {
 			LOGGER.error(e.getMessage());
+			
+			/*
+			 * Catch 404 and return 500 with useful message.
+			 * Not returning 404 as user successfully communicated
+			 * with my app, the 404 was part of an internal issue
+			 */
 			throw new ResponseStatusException(
-			           HttpStatus.NOT_FOUND, "There was an error when trying to call 3rd party API", e);
+			           HttpStatus.INTERNAL_SERVER_ERROR, "There was an error when trying to call 3rd party API", e);
 		}
 		catch(Exception e) {
 			LOGGER.error(e.getMessage());

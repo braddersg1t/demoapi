@@ -6,7 +6,9 @@
 
 ### Build
 * From root of project: gradle build
-* Resulting jar can be found at: build/libs/demoapi-1.0.jar 
+* Resulting jar can be found at: build/libs/demoapi-1.0.jar
+* NOTE: If for any reason a build can't be completed, the is a ready
+built copy of demoapi-1.0.jar in the 'dontpanic' directory
 
 ### To run application
 * java -jar -Dlogs_dir=/{path-to-desired-log-location} build/libs/demoapi-1.0.jar
